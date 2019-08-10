@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+	<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd"> 
+	
+	
+		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+			<property name="dataSource" ref="dataSource" /> 
+			<property name="configLocation" value="classpath:/config/spring/context/mybatis-config-base.xml" /> 
+			<property name="mapperLocations"> 
+				<list> 
+					<value>classpath:mapper/*Mapper.xml</value> 
+				</list> 
+			</property> 
+		</bean> 
+		
+		<!-- SQLSessionTemplate설정하기 DAO인터페이스를 만들었기때문에 Mybatis에서 DAO인터페이스를 구현하기위해서 필요한작업 -->
+ 
+	    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+	        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>    
+	    </bean>
+	 
+	</beans>
