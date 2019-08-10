@@ -8,9 +8,9 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd"> 
 		
 		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-			<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" /> 
-			<property name="url" value="jdbc:mysql://cheoljin.c8emnh0bb9pj.us-east-2.rds.amazonaws.com:3306/cheoljin" /> 
-			<property name="username" value="cheoljin" /> 
-			<property name="password" value="cheoljin1234" /> 
+			<property name="driverClassName" value="${jdbc.driver}" /> 
+			<property name="url" value="${jdbc.url}" /> 
+			<property name="username" value="${jdbc.username}" /> 
+			<property name="password" value="${jdbc.password}" /> 
 		</bean> 
 	</beans>
