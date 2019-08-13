@@ -5,3 +5,5 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/base.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
